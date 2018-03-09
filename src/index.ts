@@ -2,7 +2,7 @@ import * as akala from '@akala/server';
 import { Service } from '@domojs/upnp'
 import { meta } from '@domojs/service-discovery'
 
-akala.injectWithName(['$master', '$isModule', '$http'], function (master: akala.worker.MasterRegistration, isModule: (m: string) => boolean, http: akala.Http)
+akala.injectWithName(['$master', '$isModule', '$http'], function (master: akala.worker.MasterRegistration, isModule: akala.worker.IsModule, http: akala.Http)
 {
     if (isModule('@domojs/hue'))
     {
