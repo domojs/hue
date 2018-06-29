@@ -8,7 +8,7 @@ akala.injectWithName(['$master', '$isModule', '$http'], function (master: akala.
     {
         akala.worker.createClient('zeroconf').then((c) =>
         {
-            var client = meta.createClient(c)({
+            var client = meta.createClient(c, {
                 add: function (service: Service)
                 {
                     if (service.type == 'upnp:rootdevice' && typeof (service.headers['HUE-BRIDGEID']) != 'undefined')
