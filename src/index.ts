@@ -8,7 +8,7 @@ akala.injectWithName(['$master', '$isModule', '$http'], function (master: akala.
     {
         akala.worker.createClient('zeroconf').then((c) =>
         {
-            var client = meta.createClient(c, {
+            var client = akala.api.jsonrpcws(meta).createClient(c, {
                 add: function (service: Service)
                 {
                     if (service.type == 'upnp:rootdevice' && typeof (service.headers['HUE-BRIDGEID']) != 'undefined')
@@ -24,7 +24,7 @@ akala.injectWithName(['$master', '$isModule', '$http'], function (master: akala.
             {
                 akala.each(services, function (service)
                 {
-                    client.add(service);
+                    client.add(service as Service);
                 })
             });
         })

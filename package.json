@@ -4,21 +4,24 @@
   },
   "devDependencies": {
     "@akala/server": "^2.0.28",
-    "@types/request": "^2.47.1",
     "@types/ws": "^3.2.1"
   },
   "deprecated": false,
   "description": "",
-  "dependencies": {
-    "@domojs/upnp": "^1.0.11",
-    "@domojs/service-discovery": "^1.0.4"
+  "peerDependencies": {
+    "@domojs/service-discovery": "^1.1.0",
+    "@domojs/upnp": "^1.0.11"
   },
   "license": "MIT",
   "main": "dist/index.js",
   "name": "@domojs/hue",
   "scripts": {
-    "prepublishOnly": "tsc -p src",
-    "test": "echo \"Error: no test specified\" && exit 0"
+    "test": "echo \"Error: no test specified\"",
+    "build:js": "tsc -p src",
+    "build:js:routes": "browserify -x @akala/client -x @akala/core dist/client/routes.js -o dist/routes.js",
+    "build:js:tile": "browserify -x @akala/client -x @akala/core -i @domojs/theme-default/dist/tile dist/client/tile.js -o dist/tile.js",
+    "prepublishOnly": "npm run build",
+    "build": "npm run build:js"
   },
   "typings": "dist/index.d.ts",
   "version": "1.0.1"

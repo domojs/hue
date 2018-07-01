@@ -2,8 +2,6 @@ import * as jsonrpc from '@akala/json-rpc-ws'
 import { Connection } from '@akala/json-rpc-ws'
 import * as akala from '@akala/server'
 
-import { Metadata, Proxy } from '@akala/server'
-
 export interface Service
 {
     type: string;
@@ -11,7 +9,7 @@ export interface Service
     connection?: jsonrpc.Connection;
 }
 
-export var meta = new Metadata()
+export var meta = new akala.Api()
     .connection<Connection>()
     .clientToServerOneWay<Service>()({ add: true, delete: true, notify: true })
     .clientToServer<Partial<Service>, { [name: string]: Service }>()({ get: true })
