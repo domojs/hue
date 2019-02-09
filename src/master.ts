@@ -4,7 +4,7 @@ import { meta, Service } from './common';
 
 var services: { byTypes: { [name: string]: Service }, byNames: { [name: string]: Service } } = { byTypes: {}, byNames: {} };
 var rooms: { byTypes: jsonrpc.Connection[], byNames: jsonrpc.Connection[] } = { byTypes: [], byNames: [] };
-@akala.server(meta, { jsonrpcws: '/zeroconf' })
+@akala.server(meta, { jsonrpcws: '/api/zeroconf' })
 class Api
 {
     add(service: Service)

@@ -6,7 +6,7 @@ akala.injectWithName(['$master', '$isModule', '$http'], function (master: akala.
 {
     if (isModule('@domojs/hue'))
     {
-        akala.worker.createClient('zeroconf').then((c) =>
+        akala.worker.createClient('api/zeroconf').then((c) =>
         {
             var client = akala.api.jsonrpcws(meta).createClient(c, {
                 add: function (service: Service)
