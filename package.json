@@ -3,7 +3,7 @@
     "name": "npenin"
   },
   "devDependencies": {
-    "@akala/server": "^2.1.11",
+    "@akala/server": "^3.0.22",
     "@types/ws": "^6.0.1"
   },
   "deprecated": false,
